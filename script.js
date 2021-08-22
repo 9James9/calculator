@@ -31,15 +31,15 @@ const squareroot = (operand1) => { //will only work with 1 operand so I will nee
 //let operand1 = 0
 
 let display = document.querySelector('#display')
-display.textContent = 0
+//display.textContent = 0
 
-//if operand1 is already defined, then next button will define operand2
+//if operand1 is already defined, then next button will define operand2 ****I can change this one I add the operators because I can use an operator event listener to switch when to start recording value from operand1 to operand2. Pressing an operator will store operand 1's value and then begin recording the value for operand2
 function displayThis (num) {
-    if (typeof operand1 == 'undefined') {
+    if (typeof operand1 == 'undefined' || operand1 == '') {
         operand1 = num
         console.log(`operand1: ${operand1}`)
         return display.textContent = operand1
-    } else if (typeof operand1 !== 'undefined') {
+    } else if (typeof operand1 !== 'undefined' || operand1 !== '' ||operand1 == 0) {
         operand2 = num
         console.log(`operand2: ${operand2}`)
         return display.textContent = operand2
@@ -47,7 +47,7 @@ function displayThis (num) {
 }
 
 
-
+//operand buttons
 let zeroBtn = document.querySelector('#zero')
 zeroBtn.addEventListener('click', () => {
     displayThis(0)
@@ -96,6 +96,30 @@ let sevenBtn = document.querySelector('#seven')
 sevenBtn.addEventListener('click', () => {
     displayThis(7)
 })
+//operator buttons
+let clearBtn = document.querySelector('#clear')
+clearBtn.addEventListener('click', () => {
+    operand1 = ''
+    operand2 = ''
+    display.textContent = 0
+    return console.log(`operand1: ${operand1} operand2: ${operand2}`)
+})
+
+let addBtn = document.querySelector('#add')
+addBtn.addEventListener('click', () => {
+    return operator = "add"
+})
+
+let equalsBtn = document.querySelector('#equals')
+equalsBtn.addEventListener('click', () => {
+    if (typeof operand1 == 'undefined' || typeof operand2 == 'undefined' || typeof operator == 'undefined') {display.textContent = "Error!"
+    } else if (typeof operand1 !== 'undefined' && typeof operand2 !== 'undefined' || typeof operator !== 'undefined') {
+        display.textContent = operate(operand1,operator,operand2)
+    }
+})
+
+
+
   //pressing operand causes its value to be saved as operator and displayed on screen, but the code does not run until there is a second operand
   //pressing another number causes its value to be saved as operand2 and displayed on screen
     //operate runs when it has all 3 parameters && when equals is pressed
