@@ -35,6 +35,8 @@
     display: flex;
     flex-direction: column;
     width: 70px;
+    flex-wrap: wrap;
+    height: 200px;
 }
 #operatorButtons button{
     padding: 25px;
