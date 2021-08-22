@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+#calContainer {
+    border: 5px solid black;
+    margin: 0 auto;
+    width: 40%;
+    padding: 25px;
+    height: 350px;
+}
+#operandButtons {
+    border: 1px solid black;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    width: 240px;
+    
+    flex-wrap: wrap;
+}
+#operandButtons button{
+    color: red;
+    padding: 25px;
+    width: 70px;
+}
+#operatorButtons {
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+}
+#operatorButtons button{
+    padding: 25px;
+}
