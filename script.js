@@ -34,7 +34,8 @@ let display = document.querySelector('#display')
 //display.textContent = 0
 
 //if operand1 is already defined, then next button will define operand2 ****I can change this one I add the operators because I can use an operator event listener to switch when to start recording value from operand1 to operand2. Pressing an operator will store operand 1's value and then begin recording the value for operand2
-function displayThis (num) {
+/*
+function displayThis (num) { 
     if (typeof operand1 == 'undefined' || operand1 == '') {
         operand1 = num
         console.log(`operand1: ${operand1}`)
@@ -44,6 +45,32 @@ function displayThis (num) {
         console.log(`operand2: ${operand2}`)
         return display.textContent = operand2
     } //else if operand1 and operand2 !== undefined, run operate() and reset operand1 and 2's values after displaying results
+}
+*/
+function displayThis (num) { //if operator is defined then choose value for operand2
+   if (typeof operand1 == 'undefined' && typeof operand2 == 'undefined') {
+       operand1 = num
+       console.log(operand1)
+       display.textContent = operand1
+       
+   } else if (typeof operand1 !== 'undefined' && typeof operand2 == 'undefined' ) {
+       operand1 += num.toString()
+       display.textContent = operand1
+       console.log(operand1)
+   }
+   if (typeof operator !== 'undefined') {
+       
+       if (typeof operand2 == 'undefined') {
+           operand2 = num
+           display.textContent = operand2
+           
+       } else if (typeof operand2 !== 'undefined') {
+           operand2 += num.toString()
+           display.textContent = operand2
+           
+       }
+       return numberOperand1 = parseInt(operand1)
+   }
 }
 
 
@@ -101,20 +128,32 @@ let clearBtn = document.querySelector('#clear')
 clearBtn.addEventListener('click', () => {
     operand1 = ''
     operand2 = ''
-    display.textContent = 0
-    return console.log(`operand1: ${operand1} operand2: ${operand2}`)
+    operator = ''
+    display.textContent = ""
 })
 
 let addBtn = document.querySelector('#add')
 addBtn.addEventListener('click', () => {
     return operator = "add"
+    
 })
 
 let equalsBtn = document.querySelector('#equals')
 equalsBtn.addEventListener('click', () => {
     if (typeof operand1 == 'undefined' || typeof operand2 == 'undefined' || typeof operator == 'undefined') {display.textContent = "Error!"
     } else if (typeof operand1 !== 'undefined' && typeof operand2 !== 'undefined' || typeof operator !== 'undefined') {
-        display.textContent = operate(operand1,operator,operand2)
+        
+        //let numberOperand1 = parseInt(operand1)
+        let numberOperand2 = parseInt(operand2)
+        
+        console.log(typeof operand1)
+        console.log(typeof operand2)
+        console.log(typeof numberOperand1)
+        console.log(typeof numberOperand2)
+        display.textContent = operate(numberOperand1,operator,numberOperand2)
+        
+        operand1 = ''
+        operand2 = ''
     }
 })
 
