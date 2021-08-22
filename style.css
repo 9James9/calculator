@@ -1,12 +1,21 @@
 * {
     box-sizing: border-box;
 }
+#display {
+    border: 2px solid red;
+    padding: 10px;
+    margin: 10px auto;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
 #calContainer {
     border: 5px solid black;
     margin: 0 auto;
     width: 40%;
     padding: 25px;
-    height: 350px;
+    height: 400px;
 }
 #operandButtons {
     border: 1px solid black;

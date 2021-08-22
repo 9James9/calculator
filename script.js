@@ -22,3 +22,6 @@ const multiply = (operand1,operand2) => {
 const divide = (operand1,operand2) => {
     return operand1 / operand2
 }
+const squareroot = (operand1) => { //will only work with 1 operand so I will need to modify the operate function to use this
+    return Math.sqrt(operand1)
+}
