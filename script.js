@@ -68,12 +68,8 @@ const squareroot = (operand1) => { //will only work with 1 operand so I will nee
     return Math.sqrt(operand1)
 }
 //////////////Operate function ^^^^
-
-
 let display = document.querySelector('#display')
-
 function displayThis(num) {
-    
     let operator
     if (typeof operator == 'undefined') {
         operator = 'off'
@@ -81,50 +77,18 @@ function displayThis(num) {
         operator = 'off'
     }
     if (operator == 'off' || 'undefined') {
-        let currentNumber = [
-
-        ]
+        let currentNumber = []
         currentNumber.push(num)
         console.log(`currentNumber = ${currentNumber = currentNumber}`)
-
         display.textContent += currentNumber
         return
     } else if (operator !== 'off') {
         firstNumber.push(parseInt(display.textContent))
-
         nextNumber.push(num)
         console.log(nextNumber = `nextNumber = ${nextNumber}`)
         return
-
     }
-
     let firstNumber = []
-    /*
-       if (typeof operand1 == 'undefined' && typeof operand2 == 'undefined') {
-           operand1 = num
-           console.log(operand1)
-           display.textContent = operand1
-           
-       } else if (typeof operand1 !== 'undefined' && typeof operand2 == 'undefined' ) {
-           operand1 += num.toString()
-           display.textContent = operand1
-           console.log(operand1)
-       }
-       if (typeof operator !== 'undefined') {
-           
-           if (typeof operand2 == 'undefined') {
-               operand2 = num
-               display.textContent = operand2
-               
-           } else if (typeof operand2 !== 'undefined') {
-               operand2 += num.toString()
-               display.textContent = operand2
-               
-           }
-           return numberOperand1 = parseInt(operand1)
-       }
-    }
-    */
 }
 //operand buttons
 let zeroBtn = document.querySelector('#zero')
@@ -219,6 +183,3 @@ divideBtn.addEventListener('click', () => {
     operator = 'divide'
     return display.textContent = `${firstNumber} / `
 })
-//pressing operand causes its value to be saved as operator and displayed on screen, but the code does not run until there is a second operand
-//pressing another number causes its value to be saved as operand2 and displayed on screen
-//operate runs when it has all 3 parameters && when equals is pressed
