@@ -6,8 +6,11 @@ const operate = function (operator) {
         let answer = subtract()
         display.textContent = `${answer}`
         return answer
-    } else if (operator = 'multiply') {
-        let answer = multiply(operand1, operand2)
+    } else if (operator == 'multiply') {
+        let answer = multiply()
+        return answer
+    } else if (operator == 'divide') {
+        let answer = divide()
         return answer
     }
 }
@@ -16,7 +19,6 @@ const add = () => {
 if (operator == 'add') {
     let finalInput = (display.textContent)
     let newInput = finalInput.split(' + ')
-
     console.log(newInput)
     let firstNumber = parseInt(newInput[0])
     let secondNumber = parseInt(newInput[1])
@@ -40,11 +42,27 @@ const subtract = () => {
     return answer
     }
 }
-const multiply = (operand1, operand2) => {
-    return operand1 * operand2
+const multiply = () => {
+    if (operator == 'multiply') {
+        let finalInputMultiply = display.textContent
+        let newInputMultiply = finalInputMultiply.split(' x ')
+        let firstNumberMultiply = parseInt(newInputMultiply[0])
+        let secondNumberMultiply = parseInt(newInputMultiply[1])
+        let answer = firstNumberMultiply * secondNumberMultiply
+        display.textContent = `${answer}`
+        return answer
+    }
 }
-const divide = (operand1, operand2) => {
-    return operand1 / operand2
+const divide = () => {
+    if (operator == 'divide') {
+        let finalInputDivide = display.textContent
+        let newInputDivide = finalInputDivide.split(' / ')
+        let firstNumberDivide = parseInt(newInputDivide[0])
+        let secondNumberDivide = parseInt(newInputDivide[1])
+        let answer = firstNumberDivide / secondNumberDivide
+        display.textContent = `${answer}`
+        return answer
+    }
 }
 const squareroot = (operand1) => { //will only work with 1 operand so I will need to modify the operate function to use this
     return Math.sqrt(operand1)
@@ -186,8 +204,21 @@ subtractBtn.addEventListener('click', () => {
     display.textContent = `${firstNumber} - `
     return operator = 'subtract'
 })
+let multiplyBtn = document.querySelector('#multiply')
+multiplyBtn.addEventListener('click', () => {
+    let firstNumber = []
+    firstNumber.push(display.textContent)
+    operator = 'multiply'
+    return display.textContent = `${firstNumber} x `
+})
 
-
+let divideBtn = document.querySelector('#divide')
+divideBtn.addEventListener('click', () => {
+    let firstNumber = []
+    firstNumber.push(display.textContent)
+    operator = 'divide'
+    return display.textContent = `${firstNumber} / `
+})
 //pressing operand causes its value to be saved as operator and displayed on screen, but the code does not run until there is a second operand
 //pressing another number causes its value to be saved as operand2 and displayed on screen
 //operate runs when it has all 3 parameters && when equals is pressed
