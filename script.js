@@ -139,7 +139,6 @@ let eightBtn = document.querySelector('#eight')
 eightBtn.addEventListener('click', () => {
     displayThis(8)
 })
-
 let sevenBtn = document.querySelector('#seven')
 sevenBtn.addEventListener('click', () => {
     displayThis(7)
@@ -152,24 +151,17 @@ clearBtn.addEventListener('click', () => {
     operator = ''
     display.textContent = ""
 })
-
 let addBtn = document.querySelector('#add')
 addBtn.addEventListener('click', () => {
-    
     addBtn.disabled = true;
     subtractBtn.disabled = true;
     multiplyBtn.disabled = true;
     divideBtn.disabled = true;
-    
-   
-   
     let firstNumber = []
     operator = "add"
     firstNumber.push(display.textContent)
     display.textContent = `${firstNumber} + `
     addBtn.classList.add('selected')
-    
-    
     return
 })
 let equalsBtn = document.querySelector('#equals')
@@ -186,35 +178,28 @@ equalsBtn.addEventListener('click', () => {
 })
 let subtractBtn = document.querySelector('#subtract')
 subtractBtn.addEventListener('click', () => {
-
     subtractBtn.disabled = true;
     addBtn.disabled = true;
     multiplyBtn.disabled = true;
     divideBtn.disabled = true;
-
     let firstNumber = []
-
     firstNumber.push(display.textContent)
     display.textContent = `${firstNumber} - `
     subtractBtn.classList.add('selected')
-
     return operator = 'subtract'
 })
 let multiplyBtn = document.querySelector('#multiply')
 multiplyBtn.addEventListener('click', () => {
-
     subtractBtn.disabled = true;
     addBtn.disabled = true;
     multiplyBtn.disabled = true;
     divideBtn.disabled = true;
-
     let firstNumber = []
     firstNumber.push(display.textContent)
     operator = 'multiply'
     multiplyBtn.classList.add('selected')
     return display.textContent = `${firstNumber} x `
 })
-
 let divideBtn = document.querySelector('#divide')
 divideBtn.addEventListener('click', () => {
     subtractBtn.disabled = true;
