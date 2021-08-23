@@ -14,32 +14,31 @@ const operate = function (operator) {
         return answer
     }
 }
-
 const add = () => {
-if (operator == 'add') {
-    let finalInput = (display.textContent)
-    let newInput = finalInput.split(' + ')
-    console.log(newInput)
-    let firstNumber = parseInt(newInput[0])
-    let secondNumber = parseInt(newInput[1])
-    console.log(`firstNumber = ${firstNumber}`)
-    console.log(`secondNumber = ${secondNumber}`)
-    let answer = firstNumber + secondNumber
-    display.textContent = `${answer}`
-    return answer
-}
+    if (operator == 'add') {
+        let finalInput = (display.textContent)
+        let newInput = finalInput.split(' + ')
+        console.log(newInput)
+        let firstNumber = parseInt(newInput[0])
+        let secondNumber = parseInt(newInput[1])
+        console.log(`firstNumber = ${firstNumber}`)
+        console.log(`secondNumber = ${secondNumber}`)
+        let answer = firstNumber + secondNumber
+        display.textContent = `${answer}`
+        return answer
+    }
 }
 const subtract = () => {
     if (operator == 'subtract') {
-    let finalInputSubtract = display.textContent
-    let newInputSubtract = finalInputSubtract.split(' - ')
-    let firstNumberSubtract = parseInt(newInputSubtract[0])
-    let secondNumberSubtract = parseInt(newInputSubtract[1])
-    console.log(`firstNumberSubtract = ${firstNumberSubtract}`)
-    console.log(`secondNumberSubtract = ${secondNumberSubtract}`)
-    let answer = firstNumberSubtract - secondNumberSubtract
-    display.textContent = `${answer}`
-    return answer
+        let finalInputSubtract = display.textContent
+        let newInputSubtract = finalInputSubtract.split(' - ')
+        let firstNumberSubtract = parseInt(newInputSubtract[0])
+        let secondNumberSubtract = parseInt(newInputSubtract[1])
+        console.log(`firstNumberSubtract = ${firstNumberSubtract}`)
+        console.log(`secondNumberSubtract = ${secondNumberSubtract}`)
+        let answer = firstNumberSubtract - secondNumberSubtract
+        display.textContent = `${answer}`
+        return answer
     }
 }
 const multiply = () => {
@@ -59,16 +58,22 @@ const divide = () => {
         let newInputDivide = finalInputDivide.split(' / ')
         let firstNumberDivide = parseInt(newInputDivide[0])
         let secondNumberDivide = parseInt(newInputDivide[1])
+        if (secondNumberDivide == 0) {
+            return display.textContent = "You can't divide by 0"
+        }
         let answer = firstNumberDivide / secondNumberDivide
         display.textContent = `${answer}`
         return answer
     }
 }
-const squareroot = (operand1) => { //will only work with 1 operand so I will need to modify the operate function to use this
-    return Math.sqrt(operand1)
+const squareroot = (operand1) => { 
+    answer = Math.sqrt(operand1)
+    display.textContent = `${answer}`
+    return
 }
 //////////////Operate function ^^^^
 let display = document.querySelector('#display')
+
 function displayThis(num) {
     let operator
     if (typeof operator == 'undefined') {
@@ -150,42 +155,80 @@ clearBtn.addEventListener('click', () => {
 
 let addBtn = document.querySelector('#add')
 addBtn.addEventListener('click', () => {
-    if (addBtn.className = 'selected') {
-        addBtn.disabled = true;
-    }
+    
+    addBtn.disabled = true;
+    subtractBtn.disabled = true;
+    multiplyBtn.disabled = true;
+    divideBtn.disabled = true;
+    
+   
+   
     let firstNumber = []
     operator = "add"
     firstNumber.push(display.textContent)
     display.textContent = `${firstNumber} + `
     addBtn.classList.add('selected')
     
+    
+    return
 })
 let equalsBtn = document.querySelector('#equals')
 equalsBtn.addEventListener('click', () => {
     addBtn.disabled = false;
     addBtn.classList.remove('selected')
-    operate(operator)  
+    subtractBtn.disabled = false;
+    subtractBtn.classList.remove('selected')
+    multiplyBtn.disabled = false;
+    multiplyBtn.classList.remove('selected')
+    divideBtn.disabled = false;
+    divideBtn.classList.remove('selected')
+    operate(operator)
 })
 let subtractBtn = document.querySelector('#subtract')
 subtractBtn.addEventListener('click', () => {
-    let firstNumber = []
-    firstNumber.push(display.textContent)
 
+    subtractBtn.disabled = true;
+    addBtn.disabled = true;
+    multiplyBtn.disabled = true;
+    divideBtn.disabled = true;
+
+    let firstNumber = []
+
+    firstNumber.push(display.textContent)
     display.textContent = `${firstNumber} - `
+    subtractBtn.classList.add('selected')
+
     return operator = 'subtract'
 })
 let multiplyBtn = document.querySelector('#multiply')
 multiplyBtn.addEventListener('click', () => {
+
+    subtractBtn.disabled = true;
+    addBtn.disabled = true;
+    multiplyBtn.disabled = true;
+    divideBtn.disabled = true;
+
     let firstNumber = []
     firstNumber.push(display.textContent)
     operator = 'multiply'
+    multiplyBtn.classList.add('selected')
     return display.textContent = `${firstNumber} x `
 })
 
 let divideBtn = document.querySelector('#divide')
 divideBtn.addEventListener('click', () => {
+    subtractBtn.disabled = true;
+    addBtn.disabled = true;
+    multiplyBtn.disabled = true;
+    divideBtn.disabled = true;
     let firstNumber = []
     firstNumber.push(display.textContent)
     operator = 'divide'
+    divideBtn.classList.add('selected')
     return display.textContent = `${firstNumber} / `
+})
+let squarerootBtn = document.querySelector('#squareroot')
+squarerootBtn.addEventListener('click', () => {
+    number = display.textContent
+    squareroot(number)
 })
