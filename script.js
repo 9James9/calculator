@@ -1,6 +1,6 @@
-const operate = function(operand1,operator,operand2) {
+const operate = function(currentNumber,operator,operand2) {
 if (operator = 'add') {
-    let answer = add(operand1,operand2)
+    let answer = add(currentNumber,operand2)
     return answer
 } else if (operator = 'subtract') {
     let answer = subtract(operand1,operand2)
@@ -10,8 +10,20 @@ if (operator = 'add') {
     return answer
 }
 }
-const add = (operand1,operand2) => {
-    return operand1 + operand2
+const add = (currentNumber,nextNumber) => {
+    
+
+    let finalInput = (display.textContent)
+    let newInput = finalInput.split(' + ')
+    
+    console.log(newInput)
+    let firstNumber = parseInt(newInput[0])
+    let secondNumber = parseInt(newInput[1])
+    console.log(`firstNumber = ${firstNumber}`)
+    console.log(`secondNumber = ${secondNumber}`)
+    let answer = firstNumber + secondNumber
+    display.textContent = `${answer}`
+    return answer
 }
 const subtract = (operand1,operand2) => {
     return operand1 - operand2
@@ -47,7 +59,32 @@ function displayThis (num) {
     } //else if operand1 and operand2 !== undefined, run operate() and reset operand1 and 2's values after displaying results
 }
 */
-function displayThis (num) { //if operator is defined then choose value for operand2
+function displayThis (num) {
+    let nextNumber = []
+    let operator
+    if (typeof operator == 'undefined') {
+        let operator = 'off'
+    } else {let operator = 'off'}
+     if (operator == 'off' || 'undefined') {
+         let currentNumber = [
+             
+         ]
+         currentNumber.push(num)
+         console.log(`currentNumber = ${currentNumber = currentNumber}`)
+         
+         display.textContent += currentNumber 
+         return
+     } else if (operator !== 'off') {
+         firstNumber.push(parseInt(display.textContent))
+        
+        nextNumber.push(num)
+        console.log(nextNumber = `nextNumber = ${nextNumber}`)
+         return
+         
+     }
+     
+     let firstNumber = []
+     /*
    if (typeof operand1 == 'undefined' && typeof operand2 == 'undefined') {
        operand1 = num
        console.log(operand1)
@@ -72,8 +109,8 @@ function displayThis (num) { //if operator is defined then choose value for oper
        return numberOperand1 = parseInt(operand1)
    }
 }
-
-
+*/
+}
 //operand buttons
 let zeroBtn = document.querySelector('#zero')
 zeroBtn.addEventListener('click', () => {
@@ -134,29 +171,42 @@ clearBtn.addEventListener('click', () => {
 
 let addBtn = document.querySelector('#add')
 addBtn.addEventListener('click', () => {
-    return operator = "add"
+    let firstNumber = []
+    operator = "add"
+    firstNumber.push(display.textContent)
+    return display.textContent = `${firstNumber} + `
     
 })
-
 let equalsBtn = document.querySelector('#equals')
 equalsBtn.addEventListener('click', () => {
-    if (typeof operand1 == 'undefined' || typeof operand2 == 'undefined' || typeof operator == 'undefined') {display.textContent = "Error!"
+    operate(operator = 'add')
+    //display.textContent = `answer!`
+    return
+})
+/*
+let equalsBtn = document.querySelector('#equals')
+equalsBtn.addEventListener('click', () => {
+    
+    if (typeof currentNumber == 'undefined' || typeof operand2 == 'undefined' || typeof operator == 'undefined') {display.textContent = "Error!"
     } else if (typeof operand1 !== 'undefined' && typeof operand2 !== 'undefined' || typeof operator !== 'undefined') {
         
         //let numberOperand1 = parseInt(operand1)
         let numberOperand2 = parseInt(operand2)
-        
+        let numberOperand1 = parseInt(operand1)
         console.log(typeof operand1)
         console.log(typeof operand2)
         console.log(typeof numberOperand1)
         console.log(typeof numberOperand2)
-        display.textContent = operate(numberOperand1,operator,numberOperand2)
+        display.textContent = operate(currentNumber,operator,numberOperand2)
         
         operand1 = ''
         operand2 = ''
+        return 
+        
     }
 })
 
+*/
 
 
   //pressing operand causes its value to be saved as operator and displayed on screen, but the code does not run until there is a second operand
