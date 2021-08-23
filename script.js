@@ -150,14 +150,20 @@ clearBtn.addEventListener('click', () => {
 
 let addBtn = document.querySelector('#add')
 addBtn.addEventListener('click', () => {
+    if (addBtn.className = 'selected') {
+        addBtn.disabled = true;
+    }
     let firstNumber = []
     operator = "add"
     firstNumber.push(display.textContent)
-    return display.textContent = `${firstNumber} + `
-
+    display.textContent = `${firstNumber} + `
+    addBtn.classList.add('selected')
+    
 })
 let equalsBtn = document.querySelector('#equals')
 equalsBtn.addEventListener('click', () => {
+    addBtn.disabled = false;
+    addBtn.classList.remove('selected')
     operate(operator)  
 })
 let subtractBtn = document.querySelector('#subtract')

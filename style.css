@@ -41,3 +41,7 @@
 #operatorButtons button{
     padding: 25px;
 }
+.selected {
+    color:red;
+    background-color: black;
+}
