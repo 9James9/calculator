@@ -2,6 +2,12 @@ let firstNumber = ''
 let secondNumber = ''
 let operator = ''
 let newInput = ''
+let numberStorage = {   
+     firstNum : "",
+     secondNum : "",
+     displayed : "",
+     currentAnswer : "",
+}
 //operand buttons
 let zeroBtn = document.querySelector('#zero')
 zeroBtn.addEventListener('click', () => {
@@ -46,6 +52,7 @@ sevenBtn.addEventListener('click', () => {
 function displayInput (num) {
 let currentDisplay = document.querySelector('#display')
 currentDisplay.textContent += num
+numberStorage.displayed += num
 }
 function checkToClear() {
     if (firstNumber !== '' && secondNumber !== '') {
@@ -61,8 +68,13 @@ addBtn.addEventListener('click', () => {
     //let currentDisplay = document.querySelector('#display')
     checkForDouble(addBtn)
     operator = '+'
-    firstNumber = currentDisplay.textContent
-    history.textContent += `${firstNumber} ${operator} `
+    //firstNumber = currentDisplay.textContent
+    if (numberStorage.firstNum == '') {
+    numberStorage.firstNum = numberStorage.displayed 
+    numberStorage.displayed = ""
+    }
+    firstNumber = numberStorage.firstNum
+    history.textContent += `${numberStorage.firstNum} ${operator} `
     addBtn.classList.add('selected')
     clear()
     return 
@@ -71,7 +83,12 @@ let subtractBtn = document.querySelector('#subtract')
 subtractBtn.addEventListener('click', () => {
     checkForDouble(subtractBtn)
     operator = '-'
-    firstNumber = currentDisplay.textContent
+    //firstNumber = currentDisplay.textContent
+    if (numberStorage.firstNum == '') {
+        numberStorage.firstNum = numberStorage.displayed 
+        numberStorage.displayed = ""
+        }
+        firstNumber = numberStorage.firstNum
     history.textContent += `${firstNumber} ${operator} `
     subtractBtn.classList.add('selected')
     clear()
@@ -81,7 +98,12 @@ let multiplyBtn = document.querySelector('#multiply')
 multiplyBtn.addEventListener('click', () => {
     checkForDouble(multiplyBtn)
     operator = '*'
-    firstNumber = currentDisplay.textContent
+    //firstNumber = currentDisplay.textContent
+    if (numberStorage.firstNum == '') {
+        numberStorage.firstNum = numberStorage.displayed 
+        numberStorage.displayed = ""
+        }
+        firstNumber = numberStorage.firstNum
     history.textContent += `${firstNumber} x `
     multiplyBtn.classList.add('selected')
     clear()
@@ -91,7 +113,12 @@ let divideBtn = document.querySelector('#divide')
 divideBtn.addEventListener('click', () => {
     checkForDouble(divideBtn)
     operator = "/"
-    firstNumber = currentDisplay.textContent
+    //firstNumber = currentDisplay.textContent
+    if (numberStorage.firstNum == '') {
+        numberStorage.firstNum = numberStorage.displayed 
+        numberStorage.displayed = ""
+        }
+        firstNumber = numberStorage.firstNum
     history.textContent += `${firstNumber} / `
     divideBtn.classList.add('selected')
     clear()
@@ -100,54 +127,82 @@ divideBtn.addEventListener('click', () => {
 let sqrtBtn = document.querySelector('#squareroot')
 sqrtBtn.addEventListener('click',squareRoot)
 function squareRoot () {
+    
     num = currentDisplay.textContent
      answer = Math.sqrt(num).toFixed(2)
-     return currentDisplay.textContent = `${answer}`
+     commaAnswer = answer.toLocaleString("en-US")
+            numberStorage.currentAnswer = parseFloat(answer)
+            numberStorage.firstNum = numberStorage.currentAnswer
+     return currentDisplay.textContent = `${commaAnswer}`
     }
 let clearBtn = document.querySelector('#clear')
 clearBtn.addEventListener('click', () => {
     clear()
     removeClass()
     clearHistory()
+    numberStorage = {   
+        firstNum : "",
+        secondNum : "",
+        displayed : "",
+        currentAnswer : "",
+   }
 })
 let equalBtn = document.querySelector('#equals')
 equalBtn.addEventListener('click', () => { 
-    secondNumber = currentDisplay.textContent
+    //secondNumber = currentDisplay.textContent
+    secondNumber = numberStorage.displayed
+    numberStorage.displayed = ""
     history.textContent += `${secondNumber}`
     //clear()
     operate()
     removeClass()
     return //history.textContent += `${firstNumber} ${operator} ${secondNumber}`
 })
+
 function operate() {
-    let a = parseInt(firstNumber)
-    let b = parseInt(secondNumber)
+    let a = parseFloat(numberStorage.firstNum)
+    let b = parseFloat(secondNumber)
+    let commaAnswer
     switch (operator) {
         case operator = "+":
              answer = a + b
-             currentDisplay.textContent = `${answer.toLocaleString("en-US")}`
+             commaAnswer = answer.toLocaleString("en-US")
+             numberStorage.currentAnswer = parseFloat(answer)
+             currentDisplay.textContent = `${commaAnswer}`
              history.textContent = `${firstNumber} ${operator} ${secondNumber} = ${answer}`         
             break;
         case operator = "-":
             answer = a - b
-            currentDisplay.textContent = `${answer.toLocaleString("en-US")}`
+            commaAnswer = answer.toLocaleString("en-US")
+            numberStorage.currentAnswer = parseFloat(answer)
+            currentDisplay.textContent = `${commaAnswer}`
             history.textContent = `${firstNumber} ${operator} ${secondNumber} = ${answer}`
             break;
         case operator = "*":
             answer = a * b
-            currentDisplay.textContent = `${answer.toLocaleString("en-US")}`
+            commaAnswer = answer.toLocaleString("en-US")
+            numberStorage.currentAnswer = parseFloat(answer)
+            currentDisplay.textContent = `${commaAnswer}`
             history.textContent = `${firstNumber} x ${secondNumber} = ${answer}`
             break;
         case operator = "/":
             answer = a / b
-            currentDisplay.textContent = `${answer.toLocaleString("en-US")}`
+            commaAnswer = answer.toLocaleString("en-US")
+            numberStorage.currentAnswer = parseFloat(answer)
+            currentDisplay.textContent = `${commaAnswer}`
             history.textContent = `${firstNumber} ${operator} ${secondNumber} = ${answer}`
             break;
         default:
             break;
     }
+    numberStorage.firstNum = (numberStorage.currentAnswer).toString()
     clearHistory()
 }
+let answer
+if (answer == 'undefined') {
+let commaAnswer = answer.toLocaleString("en-US")
+console.log(commaAnswer)
+} else {commaAnswer = 'undefined'}
 //utility functions
 function clear() {
     return currentDisplay.textContent = ""
