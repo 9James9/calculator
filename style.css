@@ -96,4 +96,22 @@ body,html{
 grid-row-start: 4;
 grid-column-start: 4;
 grid-row: span 2;
+background-color: rgb(83, 61, 180);
+color: white;
+}
+#equals:hover {
+    background-color: lightsteelblue;
+    color: black;
+}
+.operator {
+    background-color: rgb(124, 148, 228);
+}
+.ac {
+    background-color: rgb(190, 21, 21);
+}
+.delete {
+    background-color: rgb(190, 21, 21);
+}
+#squareroot {
+    background-color: rgb(124, 148, 228);
 }
