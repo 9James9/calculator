@@ -42,10 +42,7 @@
     padding: 25px;
     background-color: blueviolet;
 }
-.selected {
-    color:red;
-    background-color: black;
-}
+
 #history {
 border: solid 1px black;
 height: 30px;
@@ -91,4 +88,7 @@ body {
 }
 .grid-item:hover {
     background-color: lightsteelblue;
+}
+.selected {
+    color:red;
 }
