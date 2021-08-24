@@ -1,0 +1,1 @@
+This is a basic calculator that can add/subtract/multiply/divide and get the square root.
