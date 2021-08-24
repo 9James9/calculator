@@ -2,52 +2,6 @@
     box-sizing: border-box;
     
 }
-/*
-#display {
-    border: 2px solid red;
-    padding: 10px;
-    margin: 10px auto;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-#calContainer {
-    border: 5px solid black;
-    margin: 0 auto;
-    width: 600px;
-    padding: 25px;
-    height: 420px;
-}
-#operandButtons {
-    float: left;
-    display: flex;
-    flex-direction: row;
-    width: 240px;
-    flex-wrap: wrap;
-}
-#operandButtons button{
-    color: red;
-    padding: 25px;
-    width: 70px;
-}
-#operatorButtons {
-    display: flex;
-    flex-direction: column;
-    width: 70px;
-    flex-wrap: wrap;
-    height: 200px;
-}
-#operatorButtons button{
-    padding: 25px;
-    background-color: blueviolet;
-}
-
-#history {
-border: solid 1px black;
-height: 30px;
-}
-*/
 body,html{
     background-image: linear-gradient(blue,green);
     height : 100%;
