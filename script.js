@@ -125,22 +125,22 @@ function operate() {
     switch (operator) {
         case operator = "+":
              answer = a + b
-             currentDisplay.textContent = `${answer}`
+             currentDisplay.textContent = `${answer.toLocaleString("en-US")}`
              history.textContent = `${firstNumber} ${operator} ${secondNumber} = ${answer}`         
             break;
         case operator = "-":
             answer = a - b
-            currentDisplay.textContent = `${answer}`
+            currentDisplay.textContent = `${answer.toLocaleString("en-US")}`
             history.textContent = `${firstNumber} ${operator} ${secondNumber} = ${answer}`
             break;
         case operator = "*":
             answer = a * b
-            currentDisplay.textContent = `${answer}`
+            currentDisplay.textContent = `${answer.toLocaleString("en-US")}`
             history.textContent = `${firstNumber} x ${secondNumber} = ${answer}`
             break;
         case operator = "/":
             answer = a / b
-            currentDisplay.textContent = `${answer}`
+            currentDisplay.textContent = `${answer.toLocaleString("en-US")}`
             history.textContent = `${firstNumber} ${operator} ${secondNumber} = ${answer}`
             break;
         default:
