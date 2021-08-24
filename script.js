@@ -51,21 +51,23 @@ sevenBtn.addEventListener('click', () => {
 })
 const decimalBtn = document.querySelector('#decimal')
 decimalBtn.addEventListener('click', () => {
-    
-    
+
+
     displayInput(".")
-    
+
 })
+
 function displayInput(num) {
     let currentDisplay = document.querySelector('#display')
     currentDisplay.textContent += num
     numberStorage.displayed += num
     if (numberStorage.displayed.indexOf('.') !== -1) {
-        decimalBtn.setAttribute('disabled','')
+        decimalBtn.setAttribute('disabled', '')
     } else {
         decimalBtn.removeAttribute('disabled')
     }
 }
+
 function checkToClear() {
     if (firstNumber !== '' && secondNumber !== '') {
         clear()
@@ -161,9 +163,10 @@ equalBtn.addEventListener('click', () => {
 })
 const delBtn = document.querySelector('#backspace')
 delBtn.addEventListener('click', () => {
-     numberStorage.displayed = numberStorage.displayed.slice(0,-1)
+    numberStorage.displayed = numberStorage.displayed.slice(0, -1)
     currentDisplay.textContent = `${numberStorage.displayed}`
 })
+
 function operate() {
     let a = parseFloat(numberStorage.firstNum)
     let b = parseFloat(secondNumber)
@@ -201,15 +204,17 @@ function operate() {
             break;
     }
     numberStorage.firstNum = (numberStorage.currentAnswer).toString()
-    
     clearHistory()
 }
+
 function clear() {
     return currentDisplay.textContent = ""
 }
+
 function clearHistory() {
     return history.textContent = ""
 }
+
 function removeClass() {
     addBtn.classList.remove('selected')
     subtractBtn.classList.remove('selected')

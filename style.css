@@ -1,13 +1,15 @@
 * {
     box-sizing: border-box;
-    
 }
-body,html{
-    background-image: linear-gradient(blue,green);
-    height : 100%;
+
+body,
+html {
+    background-image: linear-gradient(blue, green);
+    height: 100%;
     margin: 0px;
     background-repeat: no-repeat;
 }
+
 #calculator {
     display: flex;
     flex-direction: column;
@@ -15,9 +17,10 @@ body,html{
     height: 100%;
     justify-content: center;
 }
+
 #displayBar {
     background-color: dimgray;
-    color:lightblue;
+    color: lightblue;
     min-width: 500px;
     max-width: 500px;
     display: flex;
@@ -27,6 +30,7 @@ body,html{
     font-size: 24px;
     padding: 10px;
 }
+
 #calContainer {
     display: grid;
     grid-template-columns: 125px 125px 125px 125px;
@@ -34,38 +38,47 @@ body,html{
     min-width: 500px;
     max-width: 500px;
 }
+
 .grid-item {
     background-color: lightcoral;
     border: 1px solid black;
     padding: 20px;
     font-size: 30px;
 }
+
 .grid-item:hover {
     background-color: lightsteelblue;
 }
+
 .selected {
-    color:red;
+    color: red;
 }
+
 #equals {
-grid-row-start: 4;
-grid-column-start: 4;
-grid-row: span 2;
-background-color: rgb(83, 61, 180);
-color: white;
+    grid-row-start: 4;
+    grid-column-start: 4;
+    grid-row: span 2;
+    background-color: rgb(83, 61, 180);
+    color: white;
 }
+
 #equals:hover {
     background-color: lightsteelblue;
     color: black;
 }
+
 .operator {
     background-color: rgb(124, 148, 228);
 }
+
 .ac {
     background-color: rgb(190, 21, 21);
 }
+
 .delete {
     background-color: rgb(190, 21, 21);
 }
+
 #squareroot {
     background-color: rgb(124, 148, 228);
 }
