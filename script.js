@@ -136,7 +136,7 @@ let sqrtBtn = document.querySelector('#squareroot')
 sqrtBtn.addEventListener('click', squareRoot)
 
 function squareRoot() {
-    num = numberStorage.currentAnswer
+    num = numberStorage.currentAnswer || numberStorage.displayed
     answer = Math.sqrt(num).toFixed(3)
     commaAnswer = answer.toLocaleString("en-US")
     numberStorage.currentAnswer = parseFloat(answer)
@@ -204,6 +204,7 @@ function operate() {
             break;
     }
     numberStorage.firstNum = (numberStorage.currentAnswer).toString()
+    
     clearHistory()
 }
 function clear() {
