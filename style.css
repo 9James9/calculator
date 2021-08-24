@@ -13,17 +13,15 @@
 #calContainer {
     border: 5px solid black;
     margin: 0 auto;
-    width: 40%;
+    width: 600px;
     padding: 25px;
-    height: 400px;
+    height: 420px;
 }
 #operandButtons {
-    border: 1px solid black;
     float: left;
     display: flex;
     flex-direction: row;
     width: 240px;
-    
     flex-wrap: wrap;
 }
 #operandButtons button{
@@ -40,8 +38,13 @@
 }
 #operatorButtons button{
     padding: 25px;
+    background-color: blueviolet;
 }
 .selected {
     color:red;
     background-color: black;
+}
+#history {
+border: solid 1px black;
+height: 30px;
 }

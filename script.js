@@ -1,210 +1,176 @@
-const operate = function (operator) {
-    if (operator == 'add') {
-        let answer = add()
-        return answer
-    } else if (operator == 'subtract') {
-        let answer = subtract()
-        display.textContent = `${answer}`
-        return answer
-    } else if (operator == 'multiply') {
-        let answer = multiply()
-        return answer
-    } else if (operator == 'divide') {
-        let answer = divide()
-        return answer
-    }
-}
-const add = () => {
-    if (operator == 'add') {
-        let finalInput = (display.textContent)
-        let newInput = finalInput.split(' + ')
-        console.log(newInput)
-        let firstNumber = parseInt(newInput[0])
-        let secondNumber = parseInt(newInput[1])
-        console.log(`firstNumber = ${firstNumber}`)
-        console.log(`secondNumber = ${secondNumber}`)
-        let answer = firstNumber + secondNumber
-        display.textContent = `${answer}`
-        return answer
-    }
-}
-const subtract = () => {
-    if (operator == 'subtract') {
-        let finalInputSubtract = display.textContent
-        let newInputSubtract = finalInputSubtract.split(' - ')
-        let firstNumberSubtract = parseInt(newInputSubtract[0])
-        let secondNumberSubtract = parseInt(newInputSubtract[1])
-        console.log(`firstNumberSubtract = ${firstNumberSubtract}`)
-        console.log(`secondNumberSubtract = ${secondNumberSubtract}`)
-        let answer = firstNumberSubtract - secondNumberSubtract
-        display.textContent = `${answer}`
-        return answer
-    }
-}
-const multiply = () => {
-    if (operator == 'multiply') {
-        let finalInputMultiply = display.textContent
-        let newInputMultiply = finalInputMultiply.split(' x ')
-        let firstNumberMultiply = parseInt(newInputMultiply[0])
-        let secondNumberMultiply = parseInt(newInputMultiply[1])
-        let answer = firstNumberMultiply * secondNumberMultiply
-        display.textContent = `${answer}`
-        return answer
-    }
-}
-const divide = () => {
-    if (operator == 'divide') {
-        let finalInputDivide = display.textContent
-        let newInputDivide = finalInputDivide.split(' / ')
-        let firstNumberDivide = parseInt(newInputDivide[0])
-        let secondNumberDivide = parseInt(newInputDivide[1])
-        if (secondNumberDivide == 0) {
-            return display.textContent = "You can't divide by 0"
-        }
-        let answer = firstNumberDivide / secondNumberDivide
-        display.textContent = `${answer}`
-        return answer
-    }
-}
-const squareroot = (operand1) => { 
-    answer = Math.sqrt(operand1).toFixed(3)
-    display.textContent = `${answer}`
-    return
-}
-//////////////Operate function ^^^^
-let display = document.querySelector('#display')
-
-function displayThis(num) {
-    let operator
-    if (typeof operator == 'undefined') {
-        operator = 'off'
-    } else {
-        operator = 'off'
-    }
-    if (operator == 'off' || 'undefined') {
-        let currentNumber = []
-        currentNumber.push(num)
-        console.log(`currentNumber = ${currentNumber = currentNumber}`)
-        display.textContent += currentNumber
-        return
-    } else if (operator !== 'off') {
-        firstNumber.push(parseInt(display.textContent))
-        nextNumber.push(num)
-        console.log(nextNumber = `nextNumber = ${nextNumber}`)
-        return
-    }
-}
+let firstNumber = ''
+let secondNumber = ''
+let operator = ''
+let newInput = ''
 //operand buttons
 let zeroBtn = document.querySelector('#zero')
 zeroBtn.addEventListener('click', () => {
-    displayThis(0)
+    displayInput(0)
 })
 let threeBtn = document.querySelector('#three')
 threeBtn.addEventListener('click', () => {
-    displayThis(3)
+    displayInput(3)
 })
 let twoBtn = document.querySelector('#two')
 twoBtn.addEventListener('click', () => {
-    displayThis(2)
+    displayInput(2)
 })
 let oneBtn = document.querySelector('#one')
 oneBtn.addEventListener('click', () => {
-    displayThis(1)
+    displayInput(1)
 })
 let sixBtn = document.querySelector('#six')
 sixBtn.addEventListener('click', () => {
-    displayThis(6)
+    displayInput(6)
 })
 let fiveBtn = document.querySelector('#five')
 fiveBtn.addEventListener('click', () => {
-    displayThis(5)
+    displayInput(5)
 })
 let fourBtn = document.querySelector('#four')
 fourBtn.addEventListener('click', () => {
-    displayThis(4)
+    displayInput(4)
 })
 let nineBtn = document.querySelector('#nine')
 nineBtn.addEventListener('click', () => {
-    displayThis(9)
+    displayInput(9)
 })
 let eightBtn = document.querySelector('#eight')
 eightBtn.addEventListener('click', () => {
-    displayThis(8)
+    displayInput(8)
 })
 let sevenBtn = document.querySelector('#seven')
 sevenBtn.addEventListener('click', () => {
-    displayThis(7)
+    displayInput(7)
 })
+function displayInput (num) {
+let currentDisplay = document.querySelector('#display')
+currentDisplay.textContent += num
+}
+function checkToClear() {
+    if (firstNumber !== '' && secondNumber !== '') {
+        clear()
+        clearHistory()
+    }else return
+} 
 //operator buttons
-let clearBtn = document.querySelector('#clear')
-clearBtn.addEventListener('click', () => {
-    operator = ''
-    display.textContent = ""
-    resetButtons()
-})
+let currentDisplay = document.querySelector('#display')
+let history = document.querySelector('#history')
 let addBtn = document.querySelector('#add')
 addBtn.addEventListener('click', () => {
-    addBtn.disabled = true;
-    subtractBtn.disabled = true;
-    multiplyBtn.disabled = true;
-    divideBtn.disabled = true;
-    let firstNumber = []
-    operator = "add"
-    firstNumber.push(display.textContent)
-    display.textContent = `${firstNumber} + `
+    //let currentDisplay = document.querySelector('#display')
+    checkForDouble(addBtn)
+    operator = '+'
+    firstNumber = currentDisplay.textContent
+    history.textContent += `${firstNumber} ${operator} `
     addBtn.classList.add('selected')
-    return
+    clear()
+    return 
 })
-let equalsBtn = document.querySelector('#equals')
-equalsBtn.addEventListener('click', () => {
-   resetButtons()
-    operate(operator)
-})
-function resetButtons() {
-    addBtn.disabled = false;
-    addBtn.classList.remove('selected')
-    subtractBtn.disabled = false;
-    subtractBtn.classList.remove('selected')
-    multiplyBtn.disabled = false;
-    multiplyBtn.classList.remove('selected')
-    divideBtn.disabled = false;
-    divideBtn.classList.remove('selected')
-}
-function disableButtons() {
-    subtractBtn.disabled = true;
-    addBtn.disabled = true;
-    multiplyBtn.disabled = true;
-    divideBtn.disabled = true;
-}
 let subtractBtn = document.querySelector('#subtract')
 subtractBtn.addEventListener('click', () => {
-   disableButtons()
-    let firstNumber = []
-    firstNumber.push(display.textContent)
-    display.textContent = `${firstNumber} - `
+    checkForDouble(subtractBtn)
+    operator = '-'
+    firstNumber = currentDisplay.textContent
+    history.textContent += `${firstNumber} ${operator} `
     subtractBtn.classList.add('selected')
-    return operator = 'subtract'
+    clear()
+    return
 })
 let multiplyBtn = document.querySelector('#multiply')
 multiplyBtn.addEventListener('click', () => {
-    disableButtons()
-    let firstNumber = []
-    firstNumber.push(display.textContent)
-    operator = 'multiply'
+    checkForDouble(multiplyBtn)
+    operator = '*'
+    firstNumber = currentDisplay.textContent
+    history.textContent += `${firstNumber} x `
     multiplyBtn.classList.add('selected')
-    return display.textContent = `${firstNumber} x `
+    clear()
+    return
 })
 let divideBtn = document.querySelector('#divide')
 divideBtn.addEventListener('click', () => {
-    disableButtons()
-    let firstNumber = []
-    firstNumber.push(display.textContent)
-    operator = 'divide'
+    checkForDouble(divideBtn)
+    operator = "/"
+    firstNumber = currentDisplay.textContent
+    history.textContent += `${firstNumber} / `
     divideBtn.classList.add('selected')
-    return display.textContent = `${firstNumber} / `
+    clear()
+    return
 })
-let squarerootBtn = document.querySelector('#squareroot')
-squarerootBtn.addEventListener('click', () => {
-    number = display.textContent
-    squareroot(number)
+let sqrtBtn = document.querySelector('#squareroot')
+sqrtBtn.addEventListener('click',squareRoot)
+function squareRoot () {
+    num = currentDisplay.textContent
+     answer = Math.sqrt(num).toFixed(2)
+     return currentDisplay.textContent = `${answer}`
+    }
+let clearBtn = document.querySelector('#clear')
+clearBtn.addEventListener('click', () => {
+    clear()
+    removeClass()
+    clearHistory()
 })
+let equalBtn = document.querySelector('#equals')
+equalBtn.addEventListener('click', () => { 
+    secondNumber = currentDisplay.textContent
+    history.textContent += `${secondNumber}`
+    //clear()
+    operate()
+    removeClass()
+    return //history.textContent += `${firstNumber} ${operator} ${secondNumber}`
+})
+function operate() {
+    let a = parseInt(firstNumber)
+    let b = parseInt(secondNumber)
+    switch (operator) {
+        case operator = "+":
+             answer = a + b
+             currentDisplay.textContent = `${answer}`
+             history.textContent = `${firstNumber} ${operator} ${secondNumber} = ${answer}`         
+            break;
+        case operator = "-":
+            answer = a - b
+            currentDisplay.textContent = `${answer}`
+            history.textContent = `${firstNumber} ${operator} ${secondNumber} = ${answer}`
+            break;
+        case operator = "*":
+            answer = a * b
+            currentDisplay.textContent = `${answer}`
+            history.textContent = `${firstNumber} x ${secondNumber} = ${answer}`
+            break;
+        case operator = "/":
+            answer = a / b
+            currentDisplay.textContent = `${answer}`
+            history.textContent = `${firstNumber} ${operator} ${secondNumber} = ${answer}`
+            break;
+        default:
+            break;
+    }
+    clearHistory()
+}
+//utility functions
+function clear() {
+    return currentDisplay.textContent = ""
+}
+function clearHistory() {
+    return history.textContent = ""
+}
+function removeClass() {
+    addBtn.classList.remove('selected')
+    subtractBtn.classList.remove('selected')
+    multiplyBtn.classList.remove('selected')
+    divideBtn.classList.remove('selected')
+}
+function checkForDouble (btn) { //if a button has already been clicked this will prevent another operator being added. This somehow works but gives an error
+    if (btn.classList == 'selected') {
+         history.textContent.remove(operator)
+    } else if (subtractBtn.classList == 'selected') {
+        history.textContent.remove(operator)
+    }else if (addBtn.classList == 'selected') {
+        history.textContent.remove(operator)
+    } else if (multiplyBtn.classList == 'selected') {
+        history.textContent.remove(operator)
+    } else if (divideBtn.classList == 'selected') {
+        history.textContent.remove(operator)
+    }
+}
