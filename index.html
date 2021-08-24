@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src = "script.js" defer></script>
-    <link rel = "stylesheet" type = "text/css" href = "style.css">
-    <link rel = "shortcut icon" href = "calcimage.jpeg">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="calcimage.jpeg">
     <title>Calculator</title>
 </head>
+
 <body>
     <h1>Hello World</h1>
-    <div id = "calContainer">
-        <div id = "display"></div>
-        <div id = "operandButtons">
-            <button type = "button" id = "seven">7</button>
-            <button type = "button" id = "eight">8</button>
-            <button type = "button" id = "nine">9</button>
-            <button type = "button" id = "four">4</button>
-            <button type = "button" id = "five">5</button>
-            <button type = "button" id = "six">6</button>
-            <button type = "button" id = "one">1</button>
-            <button type = "button" id = "two">2</button>
-            <button type = "button" id = "three">3</button>
-            <button type = "button" id = "zero">0</button>
-        </div>
-        <div id = "operatorButtons"> 
-            <button type = "button" id = "add">+</button>
-            <button type = "button" id = "subtract">-</button>
-            <button type = "button" id = "multiply">x</button>
-            <button type = "button" id = "divide">/</button>
-            <button type = "button" id = "equals">=</button>
-            <button type = "button" id = "clear">A/C</button>
-            <button type = "button" id = "squareroot">Sqrt</button>
-        </div>
+    <div id = "displayBar">
+        <div id = "history">123history</div>
+        <div id="display">123display</div>
+    </div>
+    
+    <div id="calContainer">
+        
+        <button type="button" class = "grid-item" id="seven">7</button>
+        <button type="button" class = "grid-item" id="eight" >8</button>
+        <button type="button" class = "grid-item" id="nine">9</button>
+        <button type="button" class = "grid-item" id="clear">A/C</button>
+        <button type="button" class = "grid-item" id="four">4</button>
+        <button type="button" class = "grid-item" id="five">5</button>
+        <button type="button" class = "grid-item" id="six">6</button>
+        <button type="button" class = "grid-item" id="multiply">x</button>
+        <button type="button" class = "grid-item" id="one">1</button>
+        <button type="button" class = "grid-item" id="two">2</button>
+        <button type="button" class = "grid-item" id="three">3</button>
+        <button type="button" class = "grid-item" id="subtract">-</button>
+        <button type="button" class = "grid-item" id="zero">0</button>
+        <button type="button" class = "grid-item" id="add">+</button>
+        
+        
+        <button type="button" class = "grid-item" id="divide">/</button>
+        <button type="button" class = "grid-item" id="equals">=</button>
+        
+        <button type="button" class = "grid-item" id="squareroot">Sqrt</button>
     </div>
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+/*
 #display {
     border: 2px solid red;
     padding: 10px;
@@ -47,4 +48,20 @@
 #history {
 border: solid 1px black;
 height: 30px;
+}
+*/
+#calContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: aliceblue;
+    padding: 10px;
+}
+.grid-item {
+    background-color: lightcoral;
+    border: 1px solid black;
+    padding: 20px;
+    font-size: 30px;
+}
+.grid-item:hover {
+    background-color: lightsteelblue;
 }
