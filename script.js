@@ -77,9 +77,7 @@ let currentDisplay = document.querySelector('#display')
 let history = document.querySelector('#history')
 let addBtn = document.querySelector('#add')
 addBtn.addEventListener('click', () => {
-    //let currentDisplay = document.querySelector('#display')
     operator = '+'
-    //firstNumber = currentDisplay.textContent
     if (numberStorage.firstNum == '') {
         numberStorage.firstNum = numberStorage.displayed
         numberStorage.displayed = ""
@@ -93,7 +91,6 @@ addBtn.addEventListener('click', () => {
 let subtractBtn = document.querySelector('#subtract')
 subtractBtn.addEventListener('click', () => {
     operator = '-'
-    //firstNumber = currentDisplay.textContent
     if (numberStorage.firstNum == '') {
         numberStorage.firstNum = numberStorage.displayed
         numberStorage.displayed = ""
@@ -107,7 +104,6 @@ subtractBtn.addEventListener('click', () => {
 let multiplyBtn = document.querySelector('#multiply')
 multiplyBtn.addEventListener('click', () => {
     operator = '*'
-    //firstNumber = currentDisplay.textContent
     if (numberStorage.firstNum == '') {
         numberStorage.firstNum = numberStorage.displayed
         numberStorage.displayed = ""
@@ -121,7 +117,6 @@ multiplyBtn.addEventListener('click', () => {
 let divideBtn = document.querySelector('#divide')
 divideBtn.addEventListener('click', () => {
     operator = "/"
-    //firstNumber = currentDisplay.textContent
     if (numberStorage.firstNum == '') {
         numberStorage.firstNum = numberStorage.displayed
         numberStorage.displayed = ""
@@ -157,14 +152,12 @@ clearBtn.addEventListener('click', () => {
 })
 let equalBtn = document.querySelector('#equals')
 equalBtn.addEventListener('click', () => {
-    //secondNumber = currentDisplay.textContent
     secondNumber = numberStorage.displayed
     numberStorage.displayed = ""
     history.textContent += `${secondNumber}`
-    //clear()
     operate()
     removeClass()
-    return //history.textContent += `${firstNumber} ${operator} ${secondNumber}`
+    return
 })
 
 function operate() {
