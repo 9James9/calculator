@@ -159,7 +159,11 @@ equalBtn.addEventListener('click', () => {
     removeClass()
     return
 })
-
+const delBtn = document.querySelector('#backspace')
+delBtn.addEventListener('click', () => {
+     numberStorage.displayed = numberStorage.displayed.slice(0,-1)
+    currentDisplay.textContent = `${numberStorage.displayed}`
+})
 function operate() {
     let a = parseFloat(numberStorage.firstNum)
     let b = parseFloat(secondNumber)
